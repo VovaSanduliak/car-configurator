@@ -1,0 +1,13 @@
+footer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+  height: 5vh;
+  margin-top: auto;
+}
+
+footer p {
+  width: 20%;
+}

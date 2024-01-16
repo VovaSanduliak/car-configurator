@@ -1,6 +1,15 @@
+import "./footer.css";
+import SocialIcons from "../solial-icons/social-icons";
+
 function Footer() {
+
   return (
-    <p>Footer</p>
+    <footer>      
+      <p>&copy; BMW</p>
+      <div>
+        <SocialIcons />
+      </div>
+    </footer>
   );
 }
 

@@ -1,0 +1,12 @@
+div.socialIcons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  
+}
+
+img {
+  width: 3%;
+  margin-right: 1em;
+}
