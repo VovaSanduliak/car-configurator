@@ -2,13 +2,10 @@ import "./footer.css";
 import SocialIcons from "../solial-icons/social-icons";
 
 function Footer() {
-
   return (
-    <footer>      
+    <footer>
       <p>&copy; BMW</p>
-      <div>
-        <SocialIcons />
-      </div>
+      <SocialIcons />
     </footer>
   );
 }
