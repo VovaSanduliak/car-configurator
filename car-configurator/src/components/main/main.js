@@ -1,6 +1,11 @@
+import CarList from "../car-list/car-list";
+import "./main.css";
+
 function Main() {
   return (
-    <p>Main</p>
+    <main>
+      <CarList />
+    </main>
   );
 }
 
