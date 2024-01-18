@@ -4,7 +4,7 @@ div.socialIcons {
   align-items: center;
 }
 
-img {
+.socialIcons img {
   width: 1em;
   margin-right: 1em;
 }

@@ -1,3 +1,5 @@
-.car-list {
+div.car-list {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
