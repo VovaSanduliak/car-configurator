@@ -1,0 +1,32 @@
+section.container {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+  justify-content: center;
+}
+
+section.container .image {
+  width: 80%;
+  display: block;
+  position: relative;
+  text-align: center;
+}
+
+section.container .image::before {
+  content: "Sheer driving pleasure";
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  color: white;
+  transform: translate(-50%, -50%);
+  text-transform: uppercase;
+  font-size: 3vw;
+  font-weight: bolder;
+  width: 100%;
+  
+}
+
+section.container .image img {
+  width: 100%;
+}

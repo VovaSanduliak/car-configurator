@@ -1,9 +1,7 @@
-import companyLogo from "./logo.svg";
+import companyLogo from "./bmw_logo.svg";
 
-function Logo() {
-  return(
-    <img src={companyLogo} alt="logo audi" style={{width: 100 }}/>
-  );
-}
+const Logo = () => {
+  return <img src={companyLogo} alt="logo bmw" style={{ width: 30 }} />;
+};
 
 export default Logo;

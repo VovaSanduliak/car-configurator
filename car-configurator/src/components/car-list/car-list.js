@@ -1,7 +1,7 @@
 import CarItem from "../list-item/list-item";
 import "./car-list.css";
 
-function CarList() {
+const CarList = () => {
   return (
     <div className="car-list">
       <CarItem />
@@ -14,7 +14,6 @@ function CarList() {
       <CarItem />
     </div>
   );
-}
+};
 
 export default CarList;
-

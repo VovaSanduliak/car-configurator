@@ -5,7 +5,7 @@ import linkedin_icon from "./icons/linkedin.png";
 import twitter_icon from "./icons/twitter.png";
 import youtube_icon from "./icons/youtube.png";
 
-function SocialIcons() {
+const SocialIcons = () => {
   return (
     <div className="socialIcons">
       <img src={facebook_icon} alt="facebook icon" />
@@ -15,6 +15,6 @@ function SocialIcons() {
       <img src={youtube_icon} alt="youtube icon" />
     </div>
   );
-}
+};
 
 export default SocialIcons;
