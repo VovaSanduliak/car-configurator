@@ -1,32 +1,47 @@
-section.container {
-  margin-top: 1em;
-  display: flex;
-  flex-direction: row;
-  max-width: 100%;
-  justify-content: center;
-}
-
 section.container .image {
-  width: 80%;
-  display: block;
   position: relative;
-  text-align: center;
 }
 
-section.container .image::before {
-  content: "Sheer driving pleasure";
+section.container .image .overlay {
   position: absolute;
-  top: 75%;
+  top: 70%;
   left: 50%;
-  color: white;
   transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+section.container .image .overlay p {
+  font-size: 4vw;
   text-transform: uppercase;
-  font-size: 3vw;
   font-weight: bolder;
-  width: 100%;
-  
+  margin-bottom: 20px;
+  white-space:nowrap;
+}
+
+section.container .image .overlay a {
+  padding: 10px 20px;
+  border: 1px solid white;
+  color: white;
+  text-decoration: none;
+  font-size: 2.5vw;
+  cursor: pointer;
 }
 
 section.container .image img {
   width: 100%;
 }
+
+.flex-container {
+  display: flex;
+  align-items: center;
+}
+
+.section-text, .section-text p {
+  text-align: center;
+}
+
+.inverted-image {
+  transform: scaleX(-1);
+}
+
