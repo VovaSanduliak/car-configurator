@@ -7,6 +7,7 @@ const CarConfiguration = () => {
   const [car, setCar] = useState(null);
   const [selectedOptions, setSelectedOptions] = useState({});
   const [activeOption, setActiveOption] = useState(null);
+  const [photoFilename, setPhotoFilename] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,6 +25,20 @@ const CarConfiguration = () => {
 
     fetchData();
   }, [id]);
+
+  useEffect(() => {
+    const fetchPhotoFilename = async () => {
+      if (car && selectedOptions) {
+        const filename = await generatePhotoFilename(
+          car.model,
+          selectedOptions
+        );
+        setPhotoFilename(filename);
+      }
+    };
+
+    fetchPhotoFilename();
+  }, [car, selectedOptions]);
 
   const handleOptionChange = (optionName, optionValue) => {
     setSelectedOptions((prevOptions) => ({
@@ -75,17 +90,25 @@ const CarConfiguration = () => {
             onClick={() => handleOptionChange(activeOption, value)}
             className={selectedOptions[activeOption] === value ? "active" : ""}
           >
-            {value}
+            {/* {value} */}
+            <img src={`/icons/${value}.png`} alt={value} />
           </button>
         ))}
       </div>
     );
   };
 
-  const generatePhotoFilename = (modelName, selectedOptions) => {
+  const generatePhotoFilename = async (modelName, selectedOptions) => {
     const { exterior, wheels } = selectedOptions;
     const ref = `${modelName}-${exterior}-${wheels}`;
-    return ref;
+
+    try {
+      await fetch(`/cars-photo/${modelName}/${ref}.png`);
+      return ref;
+    } catch (error) {
+      console.error(`Image not found: \n${ref}`);
+      return null;
+    }
   };
 
   return (
@@ -94,16 +117,18 @@ const CarConfiguration = () => {
         <div className="configurator-nav-panel">{renderOptions()}</div>
         <div className="configurator-option-values">{renderOptionValues()}</div>
       </div>
-      <div className="configurator-image">
-        {car && (
-          <img
-            src={`/cars-photo/${car.model}/${generatePhotoFilename(
-              car.model,
-              selectedOptions
-            )}.png`}
-            alt={car.title}
-          />
-        )}
+      <div>
+        <div className="configurator-image">
+          {photoFilename ? (
+            <img
+              src={`/cars-photo/${car.model}/${photoFilename}.png`}
+              alt={car.title}
+            />
+          ) : (
+            <div>Photo not found</div>
+          )}
+        </div>
+        <div>Total Price:</div>
       </div>
     </div>
   );

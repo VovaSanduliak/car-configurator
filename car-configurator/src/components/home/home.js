@@ -68,7 +68,7 @@ const Home = () => {
           }}
         >
           <h3 style={{ fontSize: "2em", marginBottom: "0.5em" }}>
-            The new BMW iX2
+            THE NEW BMW iX2
           </h3>
           <p style={{ fontSize: "1.2em" }}>
             Combines all-electric driving enjoyment with plenty of space, and a

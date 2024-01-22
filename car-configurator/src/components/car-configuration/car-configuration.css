@@ -1,3 +1,5 @@
+/* car-configuration.css */
+
 .configurator {
   display: flex;
   width: 80%;
@@ -15,14 +17,22 @@
   justify-content: center;
   align-items: center;
   border-right: 1px solid #ddd;
+  padding: 10px; /* Додав падіння для кращого вигляду */
 }
 
 .configurator-option {
   display: flex;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .configurator-option img {
   width: 50%;
+  border: 2px solid transparent;
+}
+
+.configurator-option img.active {
+  border-color: #007bff; /* Змініть колір рамки за потребою для активної іконки */
 }
 
 .nav-icon {
@@ -35,17 +45,16 @@
   width: 25%;
 }
 
-
 .configurator-image {
   display: flex;
   flex-wrap: wrap;
   width: auto;
   align-items: center;
+  width: 75%; /* Змінено ширину для відображення основної частини */
+  padding: 20px; /* Додано падіння для кращого вигляду */
 }
 
 .configurator-image img {
   display: block;
-  
-
   width: 100%;
 }
