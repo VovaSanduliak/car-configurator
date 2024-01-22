@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./home.css";
+//import "./home.css";
 import photoX5 from "./images/bmw-x5.jpg";
 import photoIX2 from "./images/bmw-ix2.jpg";
 import photoX4 from "./images/bmw-x4.jpg";
@@ -7,7 +7,49 @@ import photoX4 from "./images/bmw-x4.jpg";
 const Home = () => {
   return (
     <>
-      <section className="container">
+      <section style={{ "margin-top": "1em" }}>
+        <div>
+          <img
+            src={photoX5}
+            alt=""
+            style={{
+              display: "block",
+              maxWidth: "50%",
+              margin: "0 auto",
+              height: "auto",
+            }}
+          />
+          <div style={{ margin: "0 auto" }}>
+            <p
+              style={{
+                display: "block",
+                margin: "0 auto",
+                fontSize: "4vw",
+                textTransform: "uppercase",
+                fontWeight: "bolder",
+                whiteSpace: "nowrap",
+                textAlign: "center",
+              }}
+            >
+              Sheer driving pleasure
+            </p>
+            <Link
+              to="/models"
+              style={{
+                textTransform: "uppercase",
+                textDecoration: "none",
+                border: "1px solid black",
+                color: "black",
+                padding: "0.5em",
+              }}
+            >
+              Explore
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* <section className="container">
         <div className="image">
           <img src={photoX5} alt="" />
           <div className="overlay">
@@ -44,7 +86,7 @@ const Home = () => {
 
       <section>
         
-      </section>
+      </section> */}
     </>
   );
 };

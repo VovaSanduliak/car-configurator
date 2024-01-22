@@ -1,16 +1,7 @@
 import { Link } from "react-router-dom";
-import bmw_image from "./bmw-m8-competition-gran-coupe.png";
 import "./list-item.css";
 
-const CarItem = ({
-  id,
-  title,
-  series,
-  bodytype,
-  entine_type,
-  price,
-  photo,
-}) => {
+const CarItem = ({ id, title, price, photo }) => {
   return (
     <div className="product-card">
       <Link to={`/configure/${id}`} className="car-link">

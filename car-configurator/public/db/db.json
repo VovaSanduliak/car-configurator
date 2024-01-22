@@ -25,7 +25,11 @@
       "engine_type": ["petrol"],
       "price": "37815",
       "photo": "/cars-photo/bmw-2-coupe.png",
-      "options": []
+      "options": [
+        { "exterior": ["purple", "white"] },
+        { "wheels": ["848m", "791m"] },
+        { "interior": ["leather", "cloth"] }
+      ]
     },
     {
       "id": "3",

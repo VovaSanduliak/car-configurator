@@ -17,6 +17,14 @@
   border-right: 1px solid #ddd;
 }
 
+.configurator-option {
+  display: flex;
+}
+
+.configurator-option img {
+  width: 50%;
+}
+
 .nav-icon {
   display: flex;
   justify-content: center;
@@ -27,13 +35,17 @@
   width: 25%;
 }
 
+
 .configurator-image {
   display: flex;
+  flex-wrap: wrap;
   width: auto;
   align-items: center;
 }
 
 .configurator-image img {
   display: block;
+  
+
   width: 100%;
 }
