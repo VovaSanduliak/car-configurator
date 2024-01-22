@@ -6,6 +6,7 @@ const CarConfiguration = () => {
   const { id } = useParams();
   const [car, setCar] = useState(null);
   const [selectedOptions, setSelectedOptions] = useState({});
+  const [activeOption, setActiveOption] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,6 +16,7 @@ const CarConfiguration = () => {
         const selectedCar = data.cars.find((c) => c.id.toString() === id);
         setCar(selectedCar);
         setSelectedOptions(selectedCar.options);
+        setActiveOption(Object.keys(selectedCar.options[0])[0]);
       } catch (error) {
         console.error("Error fetching data: ", error);
       }
@@ -30,9 +32,12 @@ const CarConfiguration = () => {
     }));
   };
 
-  // TODO: loading
+  const handleIconClick = (optionName) => {
+    setActiveOption(optionName);
+  };
+
   const renderOptions = () => {
-    if (!car || !car.options) {
+    if (!car || !car.options || !activeOption) {
       return null;
     }
 
@@ -42,21 +47,39 @@ const CarConfiguration = () => {
 
       return (
         <div key={optionName} className="configurator-option">
-          <img src={`/icons/${optionName}.png`} alt={optionName} />
-          <select
-            value={selectedOptions[optionName] || ""}
-            onChange={(e) => handleOptionChange(optionName, e.target.value)}
-          >
-            <option value="">Choose an option</option>
-            {optionValues.map((value) => (
-              <option key={value} value={value}>
-                {value}
-              </option>
-            ))}
-          </select>
+          <img
+            src={`/icons/${optionName}.png`}
+            alt={optionName}
+            onClick={() => handleIconClick(optionName)}
+            className={optionName === activeOption ? "active" : ""}
+          />
         </div>
       );
     });
+  };
+
+  const renderOptionValues = () => {
+    if (!car || !car.options || !activeOption) {
+      return null;
+    }
+
+    const optionValues = car.options.find(
+      (optionGroup) => Object.keys(optionGroup)[0] === activeOption
+    )[activeOption];
+
+    return (
+      <div className="configurator-option-buttons">
+        {optionValues.map((value) => (
+          <button
+            key={value}
+            onClick={() => handleOptionChange(activeOption, value)}
+            className={selectedOptions[activeOption] === value ? "active" : ""}
+          >
+            {value}
+          </button>
+        ))}
+      </div>
+    );
   };
 
   const generatePhotoFilename = (modelName, selectedOptions) => {
@@ -69,6 +92,7 @@ const CarConfiguration = () => {
     <div className="configurator">
       <div className="configurator-panel">
         <div className="configurator-nav-panel">{renderOptions()}</div>
+        <div className="configurator-option-values">{renderOptionValues()}</div>
       </div>
       <div className="configurator-image">
         {car && (
