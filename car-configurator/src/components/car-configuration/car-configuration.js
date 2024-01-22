@@ -1,11 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./car-configuration.css";
-// import exteriorIcon from "./icons/exterior.png";
-// import wheelIcon from "./icons/wheel.png";
-// import interiorIcon from "./icons/interior.png";
-
-import exampleImage from "./bmw-m8-competition-gran-coupe.png";
 
 const CarConfiguration = () => {
   const { id } = useParams();
@@ -47,7 +42,6 @@ const CarConfiguration = () => {
 
       return (
         <div key={optionName} className="configurator-option">
-          <label>{optionName}</label>
           <img src={`/icons/${optionName}.png`} alt={optionName} />
           <select
             value={selectedOptions[optionName] || ""}
@@ -66,8 +60,7 @@ const CarConfiguration = () => {
   };
 
   const generatePhotoFilename = (modelName, selectedOptions) => {
-    const { exterior, wheels, interior } = selectedOptions;
-    // return `${modelName}_${exterior}_${wheels}_${interior}`;
+    const { exterior, wheels } = selectedOptions;
     const ref = `${modelName}-${exterior}-${wheels}`;
     return ref;
   };
@@ -75,19 +68,7 @@ const CarConfiguration = () => {
   return (
     <div className="configurator">
       <div className="configurator-panel">
-        <div className="configurator-nav-panel">
-          {renderOptions()}
-          {/* <div className="nav-icon">
-            <img src={exteriorIcon} />
-          </div>
-          <div className="nav-icon">
-            <img src={wheelIcon} />
-          </div>
-          <div className="nav-icon">
-            <img src={interiorIcon} />
-          </div> */}
-        </div>
-        {/* <div className="configurator-subpanel"></div> */}
+        <div className="configurator-nav-panel">{renderOptions()}</div>
       </div>
       <div className="configurator-image">
         {car && (

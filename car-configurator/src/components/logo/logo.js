@@ -1,7 +1,12 @@
 import companyLogo from "./bmw_logo.svg";
+import "./logo.css";
 
 const Logo = () => {
-  return <img src={companyLogo} alt="logo bmw" style={{ width: 30 }} />;
+  return (
+    <div>
+      <img src={companyLogo} alt="logo bmw" className="logo" />
+    </div>
+  );
 };
 
 export default Logo;
