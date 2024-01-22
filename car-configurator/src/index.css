@@ -14,3 +14,27 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.flex-container {
+  display: flex;
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.w-80 {
+  width: 80%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.justify-content-center {
+  justify-content: center;
+}

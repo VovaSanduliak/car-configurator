@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-//import "./car-configuration.css";
-import exteriorIcon from "./icons/exterior.png";
-import wheelIcon from "./icons/wheel.png";
-import interiorIcon from "./icons/interior.png";
+import "./car-configuration.css";
+// import exteriorIcon from "./icons/exterior.png";
+// import wheelIcon from "./icons/wheel.png";
+// import interiorIcon from "./icons/interior.png";
 
 import exampleImage from "./bmw-m8-competition-gran-coupe.png";
 
@@ -48,6 +48,7 @@ const CarConfiguration = () => {
       return (
         <div key={optionName} className="configurator-option">
           <label>{optionName}</label>
+          <img src={`/icons/${optionName}.png`} alt={optionName} />
           <select
             value={selectedOptions[optionName] || ""}
             onChange={(e) => handleOptionChange(optionName, e.target.value)}
