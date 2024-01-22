@@ -1,53 +1,69 @@
 {
   "cars": [
     {
-      "id": 1,
-      "model": "BMW 1 Series",
+      "id": "1",
+      "title": "BMW 1 Series",
+      "model": "bmw-1",
       "series": "1",
       "bodytype": "saloon",
       "engine_type": ["petrol", "diesel"],
       "price": "28740",
-      "photo": "/cars-photo/bmw-1.png"
+      "photo": "/cars-photo/bmw-1.png",
+      "options": [
+        { "exterior": ["red", "blue", "black"] },
+        { "wheels": ["star-spoke", "multi-spoke"] },
+        { "interior": ["leather", "cloth"] }
+      ]
     },
+
     {
-      "id": 2,
-      "model": "BMW 2 Series Coupe",
+      "id": "2",
+      "title": "BMW 2 Series Coupe",
+      "model": "bmw-2-coupe",
       "series": "2",
       "bodytype": "coupe",
       "engine_type": ["petrol"],
       "price": "37815",
-      "photo": "/cars-photo/bmw-2-coupe.png"
+      "photo": "/cars-photo/bmw-2-coupe.png",
+      "options": []
     },
-    { 
-      "id": 3,
-      "model": "BMW 2 Series Gran Coupe",
+    {
+      "id": "3",
+      "title": "BMW 2 Series Gran Coupe",
+      "model": "bmw-2-gran-coupe",
       "series": "2",
       "bodytype": "gran_coupe",
       "engine_type": ["petrol"],
       "price": "33150",
-      "photo": "/cars-photo/bmw-2-gran-coupe.png"
+      "photo": "/cars-photo/bmw-2-gran-coupe.png",
+      "options": []
     },
     {
-      "id": 4,
-      "model": "BMW 2 Series Active Tourer",
+      "id": "4",
+      "title": "BMW 2 Series Active Tourer",
+      "model": "bmw-2-active-tourer",
       "series": "2",
       "bodytype": "tourer",
       "engine_type": ["petrol", "plug_in_hybrid"],
       "price": "34040",
-      "photo": "/cars-photo/bmw-2-active-tourer.png"
+      "photo": "/cars-photo/bmw-2-active-tourer.png",
+      "options": []
     },
     {
-      "id": 5,
-      "model": "BMW 3 Series Saloon",
+      "id": "5",
+      "title": "BMW 3 Series Saloon",
+      "model": "bmw-3-saloon",
       "series": "3",
       "bodytype": "saloon",
       "engine_type": ["petrol", "diesel", "plug_in_hybrid"],
       "price": "40205",
-      "photo": "/cars-photo/bmw-3-saloon.png"
+      "photo": "/cars-photo/bmw-3-saloon.png",
+      "options": []
     },
     {
-      "id": 6,
-      "model": "BMW 3 Series Touring",
+      "id": "6",
+      "title": "BMW 3 Series Touring",
+      "model": "bmw-3-touring",
       "series": "3",
       "bodytype": "touring",
       "engine_type": ["petrol", "diesel", "plug_in_hybrid"],
@@ -55,8 +71,9 @@
       "photo": "/cars-photo/bmw-3-touring.png"
     },
     {
-      "id": 7,
-      "model": "BMW 4 Series Coupe",
+      "id": "7",
+      "title": "BMW 4 Series Coupe",
+      "model": "bmw-4-coupe",
       "series": "4",
       "bodytype": "coupe",
       "engine_type": ["petrol"],
@@ -64,8 +81,9 @@
       "photo": "/cars-photo/bmw-4-coupe.png"
     },
     {
-      "id": 8,
-      "model": "BMW 4 Series Convertible",
+      "id": "8",
+      "title": "BMW 4 Series Convertible",
+      "model": "bmw-4-convertible",
       "series": "4",
       "bodytype": "convertible",
       "engine_type": ["petrol"],
@@ -73,8 +91,9 @@
       "photo": "/cars-photo/bmw-4-convertible.png"
     },
     {
-      "id": 9,
-      "model": "BMW 4 Series Gran Coupe",
+      "id": "9",
+      "title": "BMW 4 Series Gran Coupe",
+      "model": "bmw-4-gran-coupe",
       "series": "4",
       "bodytype": "gran_coupe",
       "engine_type": ["petrol"],
@@ -82,8 +101,9 @@
       "photo": "/cars-photo/bmw-4-gran-coupe.png"
     },
     {
-      "id": 10,
-      "model": "BMW i4",
+      "id": "10",
+      "title": "BMW i4",
+      "model": "bmw-i4",
       "series": "4",
       "bodytype": "bmw_i",
       "engine_type": ["electric"],
@@ -91,8 +111,9 @@
       "photo": "/cars-photo/bmw-i4.png"
     },
     {
-      "id": 11,
-      "model": "BMW i4 M50",
+      "id": "11",
+      "title": "BMW i4 M50",
+      "model": "bmw-i4-m50",
       "series": "4",
       "bodytype": "bmw_i",
       "engine_type": ["electric"],
