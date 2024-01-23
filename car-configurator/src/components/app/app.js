@@ -4,7 +4,7 @@ import Home from "../home/home";
 import ModelsPage from "../models-page/models-page";
 import About from "../about/about";
 import Contact from "../contact/contact";
-import CarConfiguration from "../car-configuration/car-configuration";
+import CarConfigurator from "../car-configuration/car-configurator";
 import NotFoundPage from "../not-found-page/not-found-page";
 
 const App = () => {
@@ -15,7 +15,7 @@ const App = () => {
         <Route path="models" element={<ModelsPage />} />
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
-        <Route path="configure/:id" element={<CarConfiguration />} />
+        <Route path="configure/:id" element={<CarConfigurator />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>

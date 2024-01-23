@@ -1,0 +1,36 @@
+.configurator {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid #aaa;
+}
+
+.left-panel {
+  display: flex;
+  width: 20%;
+  border-right: 1px solid #aaa;
+}
+
+.options-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.options-panel nav {
+  list-style: none;
+}
+
+.configurator-canvas {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.summary {
+  text-align: center;
+}
+
+img.configuration-result {
+  width: 100%;
+}

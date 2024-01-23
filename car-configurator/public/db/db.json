@@ -12,21 +12,21 @@
       "options": [
         {
           "exterior": [
+            {"black": 0},
             {"red": 100},
-            {"blue": 150},
-            {"black": 120}
+            {"blue": 150}
           ]
         },
         {
           "wheels": [
-            {"star-spoke": 200},
+            {"star-spoke": 0},
             {"multi-spoke": 180}
           ]
         },
         {
           "interior": [
-            {"leather": 300},
-            {"cloth": 200}
+            {"cloth": 0},
+            {"leather": 300}
           ]
         }
       ]
