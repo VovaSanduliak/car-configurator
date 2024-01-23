@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import "./car-configuration.css";
+// import "./car-configuration.css";
 
 const CarConfiguration = () => {
   const { id } = useParams();
   const [car, setCar] = useState(null);
-  const [selectedOptions, setSelectedOptions] = useState({});
   const [activeOption, setActiveOption] = useState(null);
+  const [selectedOptions, setSelectedOptions] = useState({});
   const [photoFilename, setPhotoFilename] = useState(null);
 
   useEffect(() => {
@@ -47,7 +47,7 @@ const CarConfiguration = () => {
     }));
   };
 
-  const handleIconClick = (optionName) => {
+  const handleOptionClick = (optionName) => {
     setActiveOption(optionName);
   };
 
@@ -61,14 +61,15 @@ const CarConfiguration = () => {
       const optionValues = optionGroup[optionName];
 
       return (
-        <div key={optionName} className="configurator-option">
+        <li key={optionName}>
           <img
             src={`/icons/${optionName}.png`}
             alt={optionName}
-            onClick={() => handleIconClick(optionName)}
+            onClick={() => handleOptionClick(optionName)}
             className={optionName === activeOption ? "active" : ""}
+            style={{ width: "5vw" }}
           />
-        </div>
+        </li>
       );
     });
   };
@@ -83,16 +84,33 @@ const CarConfiguration = () => {
     )[activeOption];
 
     return (
-      <div className="configurator-option-buttons">
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
         {optionValues.map((value) => (
-          <button
+          <img
             key={value}
             onClick={() => handleOptionChange(activeOption, value)}
             className={selectedOptions[activeOption] === value ? "active" : ""}
-          >
-            {/* {value} */}
-            <img src={`/icons/${value}.png`} alt={value} />
-          </button>
+            src={`/icons/${value}.png`}
+            alt={value}
+            style={{ width: "5vw" }}
+          />
+          // <button
+          //   key={value}
+          //   onClick={() => handleOptionChange(activeOption, value)}
+          //   className={selectedOptions[activeOption] === value ? "active" : ""}
+          // >
+          //   <img
+          //     src={`/icons/${value}.png`}
+          //     alt={value}
+          //     style={{ width: "5vw" }}
+          //   />
+          // </button>
         ))}
       </div>
     );
@@ -111,24 +129,56 @@ const CarConfiguration = () => {
     }
   };
 
+  const calculatePrice = () => {};
+
   return (
-    <div className="configurator">
-      <div className="configurator-panel">
-        <div className="configurator-nav-panel">{renderOptions()}</div>
-        <div className="configurator-option-values">{renderOptionValues()}</div>
+    <div
+      style={{
+        display: "flex",
+        width: "80%",
+        margin: "0 auto",
+        border: "1px solid #111",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          width: "20%",
+          borderRight: "1px solid #222",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+          }}
+        >
+          <nav style={{ listStyle: "none" }}>{renderOptions()}</nav>
+        </div>
+        {renderOptionValues()}
       </div>
-      <div>
-        <div className="configurator-image">
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
+        <div>
           {photoFilename ? (
             <img
               src={`/cars-photo/${car.model}/${photoFilename}.png`}
               alt={car.title}
+              style={{ width: "100%" }}
             />
           ) : (
             <div>Photo not found</div>
           )}
         </div>
-        <div>Total Price:</div>
+        <div style={{ textAlign: "right" }}>
+          Total Price: {calculatePrice()}
+        </div>
       </div>
     </div>
   );

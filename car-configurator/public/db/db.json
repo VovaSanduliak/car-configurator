@@ -10,8 +10,19 @@
       "price": "28740",
       "photo": "/cars-photo/bmw-1.png",
       "options": [
-        { "exterior": ["red", "blue", "black"] },
-        { "wheels": ["star-spoke", "multi-spoke"] },
+        { "exterior":
+          [
+            {"value": "red", "price": "595" },
+            {"value": "blue", "price": "595"},
+            {"value": "black", "price": "0"}
+          ]
+         },
+        { "wheels":
+          [
+            {"value": "star-spoke", "price": "0"},
+            {"value": "multi-spoke", "price": "0"}
+          ] 
+        },
         { "interior": ["leather", "cloth"] }
       ]
     },

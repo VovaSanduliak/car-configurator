@@ -7,7 +7,7 @@ const Layout = () => {
     <>
       <Header />
 
-      <main>
+      <main style={{ marginTop: "2em" }}>
         <Outlet />
       </main>
 
