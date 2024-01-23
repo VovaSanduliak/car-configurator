@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import "./car-configuration.css";
+import "./car-configuration.css";
 
 const CarConfiguration = () => {
   const { id } = useParams();
@@ -16,7 +16,7 @@ const CarConfiguration = () => {
         const data = await response.json();
         const selectedCar = data.cars.find((c) => c.id.toString() === id);
         setCar(selectedCar);
-        setSelectedOptions(selectedCar.options);
+        setSelectedOptions({});
         setActiveOption(Object.keys(selectedCar.options[0])[0]);
       } catch (error) {
         console.error("Error fetching data: ", error);
@@ -58,7 +58,6 @@ const CarConfiguration = () => {
 
     return car.options.map((optionGroup) => {
       const optionName = Object.keys(optionGroup)[0];
-      const optionValues = optionGroup[optionName];
 
       return (
         <li key={optionName}>
@@ -91,27 +90,27 @@ const CarConfiguration = () => {
           justifyContent: "center",
         }}
       >
-        {optionValues.map((value) => (
-          <img
-            key={value}
-            onClick={() => handleOptionChange(activeOption, value)}
-            className={selectedOptions[activeOption] === value ? "active" : ""}
-            src={`/icons/${value}.png`}
-            alt={value}
-            style={{ width: "5vw" }}
-          />
-          // <button
-          //   key={value}
-          //   onClick={() => handleOptionChange(activeOption, value)}
-          //   className={selectedOptions[activeOption] === value ? "active" : ""}
-          // >
-          //   <img
-          //     src={`/icons/${value}.png`}
-          //     alt={value}
-          //     style={{ width: "5vw" }}
-          //   />
-          // </button>
-        ))}
+        {optionValues.map((optionVariant) => {
+          const optionVariantName = Object.keys(optionVariant)[0];
+          const optionVariantPrice = optionVariant[optionVariantName];
+
+          return (
+            <img
+              key={optionVariantName}
+              onClick={() =>
+                handleOptionChange(activeOption, optionVariantName)
+              }
+              className={
+                selectedOptions[activeOption] === optionVariantName
+                  ? "active"
+                  : ""
+              }
+              src={`/icons/${optionVariantName}.png`}
+              alt={optionVariantName}
+              style={{ width: "5vw" }}
+            />
+          );
+        })}
       </div>
     );
   };
@@ -129,7 +128,32 @@ const CarConfiguration = () => {
     }
   };
 
-  const calculatePrice = () => {};
+  const calculatePrice = () => {
+    if (!car || !selectedOptions) {
+      return 0;
+    }
+
+    let totalPrice = parseInt(car.price, 10);
+
+    Object.keys(selectedOptions).forEach((optionName) => {
+      const selectedValue = selectedOptions[optionName];
+      const optionGroup = car.options.find(
+        (group) => Object.keys(group)[0] === optionName
+      )[optionName];
+
+      if (optionGroup) {
+        const optionVariant = optionGroup.find(
+          (variant) => Object.keys(variant)[0] === selectedValue
+        );
+
+        if (optionVariant) {
+          totalPrice += optionVariant[selectedValue] || 0;
+        }
+      }
+    });
+
+    return totalPrice;
+  };
 
   return (
     <div
@@ -141,11 +165,7 @@ const CarConfiguration = () => {
       }}
     >
       <div
-        style={{
-          display: "flex",
-          width: "20%",
-          borderRight: "1px solid #222",
-        }}
+        style={{ display: "flex", width: "20%", borderRight: "1px solid #222" }}
       >
         <div
           style={{

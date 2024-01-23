@@ -10,20 +10,25 @@
       "price": "28740",
       "photo": "/cars-photo/bmw-1.png",
       "options": [
-        { "exterior":
-          [
-            {"value": "red", "price": "595" },
-            {"value": "blue", "price": "595"},
-            {"value": "black", "price": "0"}
+        {
+          "exterior": [
+            {"red": 100},
+            {"blue": 150},
+            {"black": 120}
           ]
-         },
-        { "wheels":
-          [
-            {"value": "star-spoke", "price": "0"},
-            {"value": "multi-spoke", "price": "0"}
-          ] 
         },
-        { "interior": ["leather", "cloth"] }
+        {
+          "wheels": [
+            {"star-spoke": 200},
+            {"multi-spoke": 180}
+          ]
+        },
+        {
+          "interior": [
+            {"leather": 300},
+            {"cloth": 200}
+          ]
+        }
       ]
     },
 
@@ -37,9 +42,21 @@
       "price": "37815",
       "photo": "/cars-photo/bmw-2-coupe.png",
       "options": [
-        { "exterior": ["purple", "white"] },
-        { "wheels": ["848m", "791m"] },
-        { "interior": ["leather", "cloth"] }
+        { "exterior": [
+            {"purple": 500 },
+            {"white": 0 }
+          ]
+        },
+        { "wheels": [
+            { "848m": 0 },
+            { "791m": 1000 }
+          ]
+        },
+        { "interior": [
+           { "cloth": 0 },
+           { "leather": 500 }
+          ]
+        }
       ]
     },
     {
