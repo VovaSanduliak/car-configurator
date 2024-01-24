@@ -2,7 +2,10 @@
   display: flex;
   width: 80%;
   margin: 0 auto;
-  border: 1px solid #aaa;
+  /* border: 1px solid #aaa; */
+  border-radius: 5px;
+  box-shadow: 0px 0px 3px 0px #000000;
+
 }
 
 .left-panel {
@@ -14,7 +17,7 @@
 .options-panel {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .options-panel nav {

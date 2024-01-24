@@ -1,7 +1,7 @@
 .option-values-panel {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .option-values-panel img {

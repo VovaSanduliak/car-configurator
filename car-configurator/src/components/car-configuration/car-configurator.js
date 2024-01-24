@@ -4,6 +4,10 @@ import "./car-configurator.css";
 import ConfiguratorOptions from "../configurator-options/configurator-options";
 import ConfiguratorOptionValues from "../configurator-option-values/configurator-option-values";
 
+// TODO: Create a file for constants
+const catalogName = "/cars-photo";
+const dbAddress = "/db/db.json";
+
 const CarConfigurator = () => {
   const { id } = useParams();
   const [car, setCar] = useState(null);
@@ -13,12 +17,6 @@ const CarConfigurator = () => {
 
   const [photoFilename, setPhotoFilename] = useState(null);
   const [totalSum, setTotalSum] = useState(0);
-
-  // selectedOptions - value + sum
-
-  // TODO: Create a file for constants
-  const catalogName = "/cars-photo";
-  const dbAddress = "/db/db.json";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -59,10 +57,29 @@ const CarConfigurator = () => {
       }
     };
 
+    const calculateTotalSum = () => {
+      let sum = 0;
+      sum += parseInt(car?.price);
+
+      Object.keys(selectedOptions).forEach((optionName) => {
+        const optionGroup = selectedOptions[optionName];
+
+        Object.keys(optionGroup).forEach((optionValue) => {
+          const optionPrice = optionGroup[optionValue];
+
+          sum += optionPrice;
+        });
+      });
+
+      setTotalSum(sum);
+      console.log(car);
+      const a = 0;
+    };
+
     fetchPhotoFilename();
+    calculateTotalSum();
   }, [car, selectedOptions]);
-  // ?? useEffect array
-  // ??? string generation
+
   const generatePhotoFileName = async (modelName, selectedOptions) => {
     const { exterior, wheels } = selectedOptions;
     const ref = `${catalogName}/${modelName}/${modelName}-${
@@ -114,7 +131,7 @@ const CarConfigurator = () => {
           <div>Loading image...</div>
         )}
         <div className="summary">
-          <p>Total Price: {totalSum}</p>
+          {!isNaN(totalSum) && <p>Total Price: {totalSum}</p>}
         </div>
       </div>
     </div>
