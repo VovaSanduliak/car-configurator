@@ -1,9 +1,9 @@
 import { useState } from "react";
+import "./contact.css";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     firstName: "",
-    lastName: "",
     subject: "",
     message: "",
   });
@@ -21,48 +21,47 @@ const Contact = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>
-          First Name:
+    <div className="contact-page">
+      <div className="form-panel">
+        <h3>Get in touch</h3>
+        <form className="contact-form" onSubmit={handleSubmit}>
           <input
+            className="input-name"
             type="text"
-            name="firstName"
+            name="Name"
+            id="name"
+            placeholder="Name"
             value={formData.firstName}
             onChange={handleChange}
           />
-        </label>
-        <label>
-          Last name
+
           <input
-            type="text"
-            name="lastName"
-            value={formData.lastName}
-            onChange={handleChange}
-          />
-        </label>
-        <label>
-          Subject
-          <input
+            className="input-subject"
             type="text"
             name="subject"
+            id="subject"
+            placeholder="Subject"
             value={formData.subject}
             onChange={handleChange}
           />
-        </label>
-        <label>
-          Message
+
           <textarea
+            className="input-message"
             name="message"
+            placeholder="Message"
             value={formData.message}
             onChange={handleChange}
           />
-        </label>
+
+          <div className="button-send">
+            <button type="submit">Send</button>
+          </div>
+        </form>
       </div>
-      <div>
-        <button type="submit">Send</button>
+      <div style={{ display: "flex", width: "50%", margin: "0 auto" }}>
+        <h3 style={{ textAlign: "center" }}>Contact us</h3>
       </div>
-    </form>
+    </div>
   );
 };
 

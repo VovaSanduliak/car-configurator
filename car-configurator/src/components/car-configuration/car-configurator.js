@@ -72,8 +72,6 @@ const CarConfigurator = () => {
       });
 
       setTotalSum(sum);
-      console.log(car);
-      const a = 0;
     };
 
     fetchPhotoFilename();

@@ -1,3 +1,5 @@
+import "./configurator-options.css";
+
 const ConfiguratorOptions = ({ car, activeOption, setActiveOption }) => {
   const handleOptionClick = (optionName) => {
     setActiveOption(optionName);

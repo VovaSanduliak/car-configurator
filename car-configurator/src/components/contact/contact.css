@@ -1,0 +1,46 @@
+div.contact-page {
+  display: flex;
+  width: 80%;
+  flex-direction: center;
+  justify-content: center;
+  margin: 0 auto;
+
+  border: 1px solid #ccc;
+}
+
+div.form-panel {
+  display: flex;
+  width: 60%;
+  flex-direction: column;
+
+}
+
+h3 {
+  text-align: center;
+}
+
+.contact-form {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  justify-content: space-between;
+  
+}
+
+input.input-name {
+  /* width: 50%; */
+}
+
+input.input-subject {
+  /* width: 50%; */
+}
+
+textarea.input-message {
+  width: 100%;
+}
+
+div.button-send {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}

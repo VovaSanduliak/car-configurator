@@ -7,7 +7,7 @@ import photoX4 from "./images/bmw-x4.jpg";
 const Home = () => {
   return (
     <>
-      <section style={{ "margin-top": "1em", height: "100vh" }}>
+      <section style={{ marginTop: "1em", height: "100vh" }}>
         <div>
           <img
             src={photoX5}
