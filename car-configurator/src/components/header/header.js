@@ -1,5 +1,4 @@
-import Nav from "../nav/nav";
-import Logo from "../logo/logo";
+import companyLogo from "./bmw_logo.svg";
 
 import "./header.css";
 import { Link, NavLink } from "react-router-dom";
@@ -10,10 +9,15 @@ const Header = () => {
 
   return (
     <nav>
-      <Link to="/" className="title">
-        Logo
+      <Link to="/" className="logo-link">
+        <img
+          style={{ width: "2.5rem" }}
+          src={companyLogo}
+          alt="logo bmw"
+          className="logo"
+        />
       </Link>
-      <div className="menu" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+      <div className="burger-menu" onClick={() => setIsMenuOpen(!isMenuOpen)}>
         <span></span>
         <span></span>
         <span></span>
@@ -33,11 +37,6 @@ const Header = () => {
         </li>
       </ul>
     </nav>
-
-    // <header style={{}}>
-    //   <Logo />
-    //   <Nav />
-    // </header>
   );
 };
 

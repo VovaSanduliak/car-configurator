@@ -1,28 +1,27 @@
 .active {
-  background-color: #1d4ed8;
+  text-decoration: underline;
 }
-
 
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #0f172a;
-  color: white;
+  background-color: #fff;
+  color: #000;
   position: sticky;
   top: 0;
 }
 
-nav .title {
-  font-size: 1.5rem;
+nav .logo-link {
+  display: "block";
   margin: 1rem;
-  font-weight: bold;
-  text-decoration: none;
-  color: white;
+  color: #000;
 }
 
 nav ul {
   display: flex;
+  flex: 1;
+  justify-content: space-evenly;
 }
 
 nav ul li {
@@ -32,17 +31,35 @@ nav ul li {
 nav ul li a {
   display: block;
   text-decoration: none;
-  color: #fff;
+  text-transform: uppercase;
+  color: #000;
   padding: 0.5rem;
   margin: 0 0 0.5rem;
-  border-radius: 0.5rem;
+  position: relative;
+  /* border-radius: 0.5rem; */
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #000;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  transition: all 0.5s;
+}
+
+nav ul li a:not(.active):hover::after {
+  width: 100%;
 }
 
 nav ul li a:not(.active):hover {
-  background-color: #172554;
+  /* background-color: #172554; */
 }
 
-nav .menu {
+nav .burger-menu {
   display: none;
   position: absolute;
   top: 0.75rem;
@@ -53,16 +70,17 @@ nav .menu {
   height: 2rem;
 }
 
-nav .menu span {
+nav .burger-menu span {
   height: 0.4rem;
   width: 100%;
-  background-color: #fff;
+  background-color: #000;
   border-radius: 0.2rem;
 }
 
 @media (max-width: 600px) {
-  nav .menu {
+  nav .burger-menu {
     display: flex;
+    margin-top: 0.5rem;
   }
 
   nav {
