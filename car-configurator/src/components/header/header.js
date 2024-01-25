@@ -2,10 +2,25 @@ import companyLogo from "./bmw_logo.svg";
 
 import "./header.css";
 import { Link, NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
 
   return (
     <nav>
@@ -17,12 +32,16 @@ const Header = () => {
           className="logo"
         />
       </Link>
-      <div className="burger-menu" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+      <div
+        ref={menuRef}
+        className={`burger-menu ${isMenuOpen ? "open" : ""}`}
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+      >
         <span></span>
         <span></span>
         <span></span>
       </div>
-      <ul className={isMenuOpen ? "open" : ""}>
+      <ul className={`menu-list ${isMenuOpen ? "open" : ""}`}>
         <li>
           <NavLink to="/">Home</NavLink>
         </li>
