@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { useParams } from "react-router-dom";
 import "./car-configurator.css";
 import ConfiguratorOptions from "../configurator-options/configurator-options";
 import ConfiguratorOptionValues from "../configurator-option-values/configurator-option-values";
+import Modal from "../modal/modal";
 
 // TODO: Create a file for constants
 const catalogName = "/cars-photo";
@@ -12,11 +14,15 @@ const CarConfigurator = () => {
   const { id } = useParams();
   const [car, setCar] = useState(null);
 
-  const [selectedOptions, setSelectedOptions] = useState({});
-  const [activeOption, setActiveOption] = useState(null);
+  const [selectedOptions, setSelectedOptions] = useState(() => {
+    const storedOptions = localStorage.getItem(`${id}-selectedOptions`);
+    return storedOptions ? JSON.parse(storedOptions) : {};
+  });
 
+  const [activeOption, setActiveOption] = useState(null);
   const [photoFilename, setPhotoFilename] = useState(null);
   const [totalSum, setTotalSum] = useState(0);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,7 +40,12 @@ const CarConfigurator = () => {
           defaultOptions[optionName] = defaulOptionValue;
         });
 
-        setSelectedOptions(defaultOptions);
+        setSelectedOptions((prevOptions) => {
+          return Object.keys(prevOptions).length > 0
+            ? prevOptions
+            : defaultOptions;
+        });
+
         setActiveOption(Object.keys(selectedCar.options[0])[0]);
       } catch (error) {
         // TODO: notification
@@ -77,6 +88,13 @@ const CarConfigurator = () => {
     fetchPhotoFilename();
     calculateTotalSum();
   }, [car, selectedOptions]);
+
+  useEffect(() => {
+    localStorage.setItem(
+      `${id}-selectedOptions`,
+      JSON.stringify(selectedOptions)
+    );
+  }, [selectedOptions]);
 
   const generatePhotoFileName = async (modelName, selectedOptions) => {
     const { exterior, wheels } = selectedOptions;
@@ -129,7 +147,20 @@ const CarConfigurator = () => {
           <div>Loading image...</div>
         )}
         <div className="summary">
+          <h3>Selected Options:</h3>
+          <ul>
+            {Object.keys(selectedOptions).map((optionName) => {
+              const optionGroup = selectedOptions[optionName];
+              return Object.keys(optionGroup).map((optionValue) => (
+                <li key={`${optionName}-${optionValue}`}>
+                  {optionName} - {optionValue} - {optionGroup[optionValue]}
+                </li>
+              ));
+            })}
+          </ul>
           {!isNaN(totalSum) && <p>Total Price: {totalSum}</p>}
+          <button onClick={() => setShowModal(true)}>order now</button>
+          {showModal && <Modal onClose={() => setShowModal(false)} />}
         </div>
       </div>
     </div>

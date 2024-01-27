@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import CarItem from "../list-item/list-item";
 import "./car-list.css";
+import { useTranslation } from "react-i18next";
 
 const CarList = () => {
   const [cars, setCars] = useState([]);

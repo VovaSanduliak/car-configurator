@@ -1,26 +1,20 @@
 import companyLogo from "./bmw_logo.svg";
 
-import "./header.css";
 import { Link, NavLink } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import i18next from "i18next";
+import { LOCALS } from "../../i18n/constants";
+import "./header.css";
+
+import { useTranslation } from "react-i18next";
+
+const changeLanguage = (lang) => {
+  i18next.changeLanguage(lang);
+};
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuRef = useRef(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setIsMenuOpen(false);
-      }
-    };
-
-    document.addEventListener("click", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, []);
+  const [isMenuOpen, setIsMenuOpen] = useState();
+  const { t } = useTranslation();
 
   return (
     <nav>
@@ -32,27 +26,40 @@ const Header = () => {
           className="logo"
         />
       </Link>
-      <div
-        ref={menuRef}
-        className={`burger-menu ${isMenuOpen ? "open" : ""}`}
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-      >
+      <div className="burger-menu" onClick={() => setIsMenuOpen(!isMenuOpen)}>
         <span></span>
         <span></span>
         <span></span>
       </div>
-      <ul className={`menu-list ${isMenuOpen ? "open" : ""}`}>
+      <ul className={isMenuOpen ? "open" : ""}>
         <li>
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/">{t("Home")}</NavLink>
         </li>
         <li>
-          <NavLink to="/models">Models</NavLink>
+          <NavLink to="/models">{t("Catalog")}</NavLink>
         </li>
         <li>
-          <NavLink to="/about">About</NavLink>
+          <NavLink to="/about">{t("About")}</NavLink>
         </li>
         <li>
-          <NavLink to="/contact">Contact</NavLink>
+          <NavLink to="/contact">{t("Contact")}</NavLink>
+        </li>
+        <li>
+          {i18next.language}
+          <div>
+            <button
+              disabled={i18next.language === LOCALS.EN}
+              onClick={() => changeLanguage(LOCALS.EN)}
+            >
+              EN
+            </button>
+            <button
+              disabled={i18next.language === LOCALS.UK}
+              onClick={() => changeLanguage(LOCALS.UK)}
+            >
+              UA
+            </button>
+          </div>
         </li>
       </ul>
     </nav>

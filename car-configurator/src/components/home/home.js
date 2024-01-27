@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
-//import "./home.css";
+import { useTranslation } from "react-i18next";
 import photoX5 from "./images/bmw-x5.jpg";
 import photoIX2 from "./images/bmw-ix2.jpg";
 import photoX4 from "./images/bmw-x4.jpg";
 
+import "../../i18n/";
+//import "./home.css";
+
 const Home = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       <section style={{ marginTop: "1em", height: "100vh" }}>
@@ -30,7 +35,7 @@ const Home = () => {
                 textAlign: "center",
               }}
             >
-              Sheer driving pleasure
+              {t("Main title")}
             </p>
             <Link
               to="/models"
