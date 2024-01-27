@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import Search from "../Search/Search";
 import CarItem from "../list-item/list-item";
 import "./car-list.css";
 import { useTranslation } from "react-i18next";
 
 const CarList = () => {
   const [cars, setCars] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,9 +25,12 @@ const CarList = () => {
 
   return (
     <div className="car-list">
-      {cars.map((car, index) => (
-        <CarItem key={index} {...car} />
-      ))}
+      <Search search={search} setSearch={setSearch} />
+      {cars
+        .filter((car) => car.title.toLowerCase().includes(search.toLowerCase()))
+        .map((car, index) => (
+          <CarItem key={index} {...car} />
+        ))}
     </div>
   );
 };
