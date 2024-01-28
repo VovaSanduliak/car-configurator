@@ -5,3 +5,4 @@ export const LOCALS = {
 
 export const catalogName = "/cars-photo";
 export const dbAddress = "/db/db.json";
+export const paginationCount = 3;

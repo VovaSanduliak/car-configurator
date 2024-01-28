@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 const Search = ({ search, setSearch }) => {
@@ -5,8 +6,8 @@ const Search = ({ search, setSearch }) => {
 
   return (
     <form>
-      <label htmlFor="search">Search</label>
       <input
+        className="input-search"
         id="search"
         type="text"
         role="searchbox"

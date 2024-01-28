@@ -13,3 +13,18 @@
   justify-content: flex-start;
   
 }
+
+.show-more-btn {
+  margin-top: 2rem;
+  border: 2px solid #000;
+  background-color: #fff;
+  padding: 10px;
+  text-transform: capitalize;
+  transition: .25s ease-in-out;
+}
+
+.show-more-btn:hover {
+  transform: scale(1.2);
+  border: 2px solid #333;
+  color: #333;
+}
