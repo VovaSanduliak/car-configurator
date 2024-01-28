@@ -3,7 +3,7 @@ import companyLogo from "./bmw_logo.svg";
 import { Link, NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import i18next from "i18next";
-import { LOCALS } from "../../i18n/constants";
+import { LOCALS } from "../../constants";
 import "./header.css";
 
 import { useTranslation } from "react-i18next";

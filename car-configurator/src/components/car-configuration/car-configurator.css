@@ -2,15 +2,54 @@
   display: flex;
   width: 80%;
   margin: 0 auto;
-  /* border: 1px solid #aaa; */
-  border-radius: 5px;
+
+  box-sizing: border-box;
+  border: 1px solid #aaa;
+}
+
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+.options-block {
+  display: flex;
+  flex-direction: row;
+}
+
+.options-panel {
+  display: flex;
+  flex-direction: column;
+
+  list-style-type: none;
+}
+
+.values-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.values-panel img {
+  width: 5wv;
+}
+
+
+
+/* .configurator {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+
+  border-radius: 1px;
   box-shadow: 0px 0px 3px 0px #000000;
 
 }
 
 .left-panel {
   display: flex;
-  width: 20%;
+  flex-direction: column;
+  width: 40%;
   border-right: 1px solid #aaa;
 }
 
@@ -20,7 +59,7 @@
   justify-content: flex-start;
 }
 
-.options-panel nav {
+nav.options-panel  {
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -39,4 +78,4 @@
 
 img.configuration-result {
   width: 100%;
-}
+} */

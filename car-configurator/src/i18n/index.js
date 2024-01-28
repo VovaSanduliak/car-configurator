@@ -2,7 +2,7 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDecector from "i18next-browser-languagedetector";
 
-import { LOCALS } from "./constants";
+import { LOCALS } from "../constants";
 import { uk } from "./copies/uk";
 import { en } from "./copies/en";
 

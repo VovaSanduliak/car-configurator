@@ -1,14 +1,11 @@
 import { useEffect, useState } from "react";
-import { createPortal } from "react-dom";
 import { useParams } from "react-router-dom";
-import "./car-configurator.css";
 import ConfiguratorOptions from "../configurator-options/configurator-options";
 import ConfiguratorOptionValues from "../configurator-option-values/configurator-option-values";
-import Modal from "../modal/modal";
-
-// TODO: Create a file for constants
-const catalogName = "/cars-photo";
-const dbAddress = "/db/db.json";
+import ConfiguratorSummary from "../configurator-summary/configurator-summaty";
+import { catalogName } from "../../constants";
+import { dbAddress } from "../../constants";
+import "./car-configurator.css";
 
 const CarConfigurator = () => {
   const { id } = useParams();
@@ -22,7 +19,6 @@ const CarConfigurator = () => {
   const [activeOption, setActiveOption] = useState(null);
   const [photoFilename, setPhotoFilename] = useState(null);
   const [totalSum, setTotalSum] = useState(0);
-  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -94,7 +90,7 @@ const CarConfigurator = () => {
       `${id}-selectedOptions`,
       JSON.stringify(selectedOptions)
     );
-  }, [selectedOptions]);
+  }, [id, selectedOptions]);
 
   const generatePhotoFileName = async (modelName, selectedOptions) => {
     const { exterior, wheels } = selectedOptions;
@@ -114,8 +110,8 @@ const CarConfigurator = () => {
   return (
     <div className="configurator">
       <div className="left-panel">
-        <div className="options-panel">
-          <nav>
+        <div className="options-block">
+          <nav className="options-panel">
             {car && (
               <ConfiguratorOptions
                 car={car}
@@ -124,44 +120,32 @@ const CarConfigurator = () => {
               />
             )}
           </nav>
-        </div>
-        {car && (
+
           <ConfiguratorOptionValues
             car={car}
             activeOption={activeOption}
             selectedOptions={selectedOptions}
             setSelectedOptions={setSelectedOptions}
           />
-        )}
+        </div>
+        <div className="options-summary">
+          <ConfiguratorSummary
+            selectedOptions={selectedOptions}
+            totalSum={totalSum}
+          />
+        </div>
       </div>
       <div className="configurator-canvas">
         {photoFilename ? (
-          <div>
-            <img
-              className="configuration-result"
-              src={photoFilename}
-              alt={car.title}
-            />
-          </div>
+          <img
+            className="configuration-result"
+            src={photoFilename}
+            alt={car.title}
+            style={{ width: "100%" }}
+          />
         ) : (
           <div>Loading image...</div>
         )}
-        <div className="summary">
-          <h3>Selected Options:</h3>
-          <ul>
-            {Object.keys(selectedOptions).map((optionName) => {
-              const optionGroup = selectedOptions[optionName];
-              return Object.keys(optionGroup).map((optionValue) => (
-                <li key={`${optionName}-${optionValue}`}>
-                  {optionName} - {optionValue} - {optionGroup[optionValue]}
-                </li>
-              ));
-            })}
-          </ul>
-          {!isNaN(totalSum) && <p>Total Price: {totalSum}</p>}
-          <button onClick={() => setShowModal(true)}>order now</button>
-          {showModal && <Modal onClose={() => setShowModal(false)} />}
-        </div>
       </div>
     </div>
   );

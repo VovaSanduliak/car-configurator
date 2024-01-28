@@ -6,6 +6,8 @@ const ConfiguratorOptionValues = ({
   selectedOptions,
   setSelectedOptions,
 }) => {
+  if (!car) return;
+
   const handleOptionChange = (optionName, optionValue) => {
     setSelectedOptions((prevOptions) => ({
       ...prevOptions,

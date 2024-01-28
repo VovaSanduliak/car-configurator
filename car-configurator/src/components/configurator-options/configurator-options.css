@@ -1,3 +1,7 @@
 li img {
   border-radius: 50%;
 }
+
+li img:not(.active) {
+  opacity: .25;
+}
