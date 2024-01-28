@@ -1,5 +1,15 @@
-div.car-list {
+.car-list-container {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+}
+
+
+.car-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: flex-start;
+  
 }

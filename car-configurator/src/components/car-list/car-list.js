@@ -11,8 +11,6 @@ const CarList = () => {
   const [cars, setCars] = useState([]);
   const [search, setSearch] = useState("");
 
-  const [filtersActive, setFiltersActive] = useState(false);
-
   const [selectedSeries, setSelectedSeries] = useState("");
   const [selectedBodyTypes, setSelectedBodyTypes] = useState([]);
   const [selectedEngineTypes, setSelectedEngineTypes] = useState([]);
@@ -44,33 +42,29 @@ const CarList = () => {
       >
         <Search search={search} setSearch={setSearch} />
 
-        <div className="car-list">
-          {cars
-            .filter((car) =>
-              car.title.toLowerCase().includes(search.toLowerCase())
-            )
-            .filter((car) => !selectedSeries || car.series === selectedSeries)
-            .filter(
-              (car) =>
-                selectedBodyTypes.length === 0 ||
-                selectedBodyTypes.includes(car.bodytype)
-            )
-            .filter(
-              (car) =>
-                selectedEngineTypes.length === 0 ||
-                selectedEngineTypes.includes(car.engine_type)
-            )
-            .map((car, index) => (
-              <CarItem key={index} {...car} />
-            ))}
+        <div className="car-list-container">
+          <div className="car-list">
+            {cars
+              .filter((car) =>
+                car.title.toLowerCase().includes(search.toLowerCase())
+              )
+              .filter((car) => !selectedSeries || car.series === selectedSeries)
+              .filter(
+                (car) =>
+                  selectedBodyTypes.length === 0 ||
+                  selectedBodyTypes.includes(car.bodytype)
+              )
+              .filter(
+                (car) =>
+                  selectedEngineTypes.length === 0 ||
+                  selectedEngineTypes.includes(car.engine_type)
+              )
+              .map((car, index) => (
+                <CarItem key={index} {...car} />
+              ))}
+          </div>
         </div>
       </Sidebar>
-      {/* <button style={{}} onClick={() => setFiltersActive(true)}>
-        FILTERS
-      </button> */}
-      {/* <Modal active={filtersActive} setActive={setFiltersActive}>
-        
-      </Modal> */}
     </div>
   );
 };

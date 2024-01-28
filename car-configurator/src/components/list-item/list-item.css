@@ -1,4 +1,38 @@
+.car-link {
+  text-decoration: none;
+  color: #000;
+  margin: 1rem;
+}
+
 .product-card {
+  /* box-shadow: 0px 2px 5px -3px rgba(0,0,0,0.75); */
+  display: flex;
+  max-width: 250px;
+  height: 100%;
+  
+  flex-direction: column;
+}
+
+.product-title {
+  text-align: center;
+}
+
+.product-details {
+  display: flex;
+  flex: 1;
+  flex-direction: column;        
+  justify-content: flex-end;
+  margin-top: 1rem;
+  /* padding-top: ; */
+}
+
+.product-card img {
+  width: 100%;
+}
+
+
+
+/* .product-card {
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -25,7 +59,7 @@
 
 .product-title {
   font-size: 24px;
-  /* margin: 0; */
+  
   text-align: center;
 }
 
@@ -34,3 +68,4 @@
   margin: 0;
   text-align: center;
 }
+ */

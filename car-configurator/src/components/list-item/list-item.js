@@ -9,18 +9,17 @@ const CarItem = ({ id, title, engine_type, price, photo }) => {
     .join(" • ");
 
   return (
-    <div className="product-card">
-      <Link to={`/configure/${id}`} className="car-link">
-        <div className="product-image">
-          <img src={photo} alt={`${title}`} />
-        </div>
+    <Link to={`/configure/${id}`} className="car-link">
+      <div className="product-card">
+        <img src={photo} alt={`${title}`} />
+
+        <h2 className="product-title">{title}</h2>
         <div className="product-details">
-          <h2 className="product-title">{title}</h2>
-          <h4 className="product-price">From {price}</h4>
+          <p className="product-price">From {price}</p>
           <p>{engineTypes}</p>
         </div>
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 };
 
