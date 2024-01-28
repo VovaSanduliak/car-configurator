@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import "./list-item.css";
 import { useTranslation } from "react-i18next";
+import "./list-item.css";
 
 const CarItem = ({ id, title, engine_type, price, photo }) => {
   const { t } = useTranslation();
