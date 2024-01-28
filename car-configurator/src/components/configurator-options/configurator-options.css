@@ -1,7 +1,19 @@
+.options-panel {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+
 li img {
   border-radius: 50%;
 }
 
 li img:not(.active) {
   opacity: .25;
+}
+
+@media (max-width: 1024px) {
+  .options-panel {
+    
+  }
 }

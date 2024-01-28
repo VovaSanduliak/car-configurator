@@ -110,8 +110,8 @@ const CarConfigurator = () => {
   return (
     <div className="configurator">
       <div className="left-panel">
-        <div className="options-block">
-          <nav className="options-panel">
+        <div className="left-panel-container">
+          <div className="options-block">
             {car && (
               <ConfiguratorOptions
                 car={car}
@@ -119,16 +119,15 @@ const CarConfigurator = () => {
                 setActiveOption={setActiveOption}
               />
             )}
-          </nav>
 
-          <ConfiguratorOptionValues
-            car={car}
-            activeOption={activeOption}
-            selectedOptions={selectedOptions}
-            setSelectedOptions={setSelectedOptions}
-          />
-        </div>
-        <div className="options-summary">
+            <ConfiguratorOptionValues
+              car={car}
+              activeOption={activeOption}
+              selectedOptions={selectedOptions}
+              setSelectedOptions={setSelectedOptions}
+            />
+          </div>
+
           <ConfiguratorSummary
             selectedOptions={selectedOptions}
             totalSum={totalSum}

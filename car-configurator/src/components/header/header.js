@@ -45,15 +45,16 @@ const Header = () => {
           <NavLink to="/contact">{t("Contact")}</NavLink>
         </li>
         <li>
-          {i18next.language}
           <div>
             <button
+              className="lang-btn"
               disabled={i18next.language === LOCALS.EN}
               onClick={() => changeLanguage(LOCALS.EN)}
             >
               EN
             </button>
             <button
+              className="lang-btn"
               disabled={i18next.language === LOCALS.UK}
               onClick={() => changeLanguage(LOCALS.UK)}
             >

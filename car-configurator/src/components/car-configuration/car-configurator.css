@@ -8,32 +8,48 @@
 }
 
 .left-panel {
+  width: 40%;
+}
+
+.left-panel-container {
   display: flex;
   flex-direction: column;
-  width: 40%;
+  height: 100%;
+  justify-content: space-between;
+  padding: 1em;
 }
 
 .options-block {
   display: flex;
-  flex-direction: row;
-}
-
-.options-panel {
-  display: flex;
   flex-direction: column;
-
-  list-style-type: none;
 }
+
+
 
 .values-panel {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
 }
 
 .values-panel img {
   width: 5wv;
 }
 
+@media (max-width: 1024px) {
+  .configurator {
+    flex-direction: column-reverse;
+  }
+
+  .left-panel {
+    width: 100%;
+  }
+
+  .left-panel-container {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    
+  }
+}
 
 
 /* .configurator {
