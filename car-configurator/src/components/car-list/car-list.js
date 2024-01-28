@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import Modal from "../filters-modal/modal";
 import Filters from "../filters/filters";
 import "./car-list.css";
+import Sidebar from "../sidebar/sidebar";
 
 const CarList = () => {
   const [cars, setCars] = useState([]);
@@ -33,42 +34,43 @@ const CarList = () => {
 
   return (
     <div>
-      <button style={{}} onClick={() => setFiltersActive(true)}>
+      <Sidebar
+        selectedSeries={selectedSeries}
+        setSelectedSeries={setSelectedSeries}
+        selectedBodyTypes={selectedBodyTypes}
+        setSelectedBodyTypes={setSelectedBodyTypes}
+        selectedEngineTypes={selectedEngineTypes}
+        setSelectedEngineTypes={setSelectedEngineTypes}
+      >
+        <Search search={search} setSearch={setSearch} />
+
+        <div className="car-list">
+          {cars
+            .filter((car) =>
+              car.title.toLowerCase().includes(search.toLowerCase())
+            )
+            .filter((car) => !selectedSeries || car.series === selectedSeries)
+            .filter(
+              (car) =>
+                selectedBodyTypes.length === 0 ||
+                selectedBodyTypes.includes(car.bodytype)
+            )
+            .filter(
+              (car) =>
+                selectedEngineTypes.length === 0 ||
+                selectedEngineTypes.includes(car.engine_type)
+            )
+            .map((car, index) => (
+              <CarItem key={index} {...car} />
+            ))}
+        </div>
+      </Sidebar>
+      {/* <button style={{}} onClick={() => setFiltersActive(true)}>
         FILTERS
-      </button>
-      <Modal active={filtersActive} setActive={setFiltersActive}>
-        <Filters
-          selectedSeries={selectedSeries}
-          setSelectedSeries={setSelectedSeries}
-          selectedBodyTypes={selectedBodyTypes}
-          setSelectedBodyTypes={setSelectedBodyTypes}
-          selectedEngineTypes={selectedEngineTypes}
-          setSelectedEngineTypes={setSelectedEngineTypes}
-        />
-      </Modal>
-
-      <Search search={search} setSearch={setSearch} />
-
-      <div className="car-list">
-        {cars
-          .filter((car) =>
-            car.title.toLowerCase().includes(search.toLowerCase())
-          )
-          .filter((car) => !selectedSeries || car.series === selectedSeries)
-          .filter(
-            (car) =>
-              selectedBodyTypes.length === 0 ||
-              selectedBodyTypes.includes(car.bodytype)
-          )
-          .filter(
-            (car) =>
-              selectedEngineTypes.length === 0 ||
-              selectedEngineTypes.includes(car.engine_type)
-          )
-          .map((car, index) => (
-            <CarItem key={index} {...car} />
-          ))}
-      </div>
+      </button> */}
+      {/* <Modal active={filtersActive} setActive={setFiltersActive}>
+        
+      </Modal> */}
     </div>
   );
 };
