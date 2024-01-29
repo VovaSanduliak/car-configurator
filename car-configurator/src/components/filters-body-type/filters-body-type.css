@@ -1,0 +1,19 @@
+.bodytype-filter {
+  margin-bottom: 20px;
+}
+
+.bodytype-filter-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.bodytype-filter-checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.bodytype-filter-input {
+  margin-right: 8px;
+}

@@ -1,3 +1,6 @@
+import { engineTypes } from "../../constants";
+import "./filters-engine-type.css";
+
 const FiltersEngineType = ({ selectedEngineTypes, setSelectedEngineTypes }) => {
   const handleEngineTypeChange = (e) => {
     const selectedType = e.target.value;
@@ -12,11 +15,12 @@ const FiltersEngineType = ({ selectedEngineTypes, setSelectedEngineTypes }) => {
   };
 
   return (
-    <div>
-      <label>Filter by Engine type:</label>
-      {["petrol", "diesel", "electric", "plug_in_hybrid"].map((type) => (
+    <div className="engine-filter">
+      <label className="engine-filter-label">Filter by Engine type:</label>
+      {engineTypes.map((type) => (
         <div key={type}>
           <input
+            className="engine-filter-input"
             type="checkbox"
             id={`engineType_${type}`}
             value={type}

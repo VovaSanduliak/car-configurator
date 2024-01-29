@@ -1,3 +1,6 @@
+import { bodyTypes } from "../../constants";
+import "./filters-body-type.css";
+
 const FiltersBodyType = ({ selectedBodyTypes, setSelectedBodyTypes }) => {
   const handleBodyTypeChange = (e) => {
     const selectedType = e.target.value;
@@ -12,19 +15,14 @@ const FiltersBodyType = ({ selectedBodyTypes, setSelectedBodyTypes }) => {
   };
 
   return (
-    <div>
-      <label htmlFor="bodyTypeFilter">Filter by body type</label>
-      {[
-        "saloon",
-        "touring",
-        "convertible",
-        "coupe",
-        "tourer",
-        "bmw i",
-        "gran coupe",
-      ].map((type) => (
-        <div key={type}>
+    <div className="bodytype-filter">
+      <label className="bodytype-filter-label" htmlFor="bodyTypeFilter">
+        Filter by body type
+      </label>
+      {bodyTypes.map((type) => (
+        <div className="bodytype-filter-checkbox" key={type}>
           <input
+            className="bodytype-filter-input"
             type="checkbox"
             id={type}
             value={type}

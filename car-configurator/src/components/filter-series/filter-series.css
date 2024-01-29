@@ -1,0 +1,19 @@
+.seiesFilter {
+  margin-top: 1rem;
+  margin-bottom: 1rem
+}
+
+.seriesFilterLabel {
+  display: block;
+  font-weight: bold;
+  text-decoration: none;
+  margin-bottom: 5px;
+}
+
+.seriesFilterSelect {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}

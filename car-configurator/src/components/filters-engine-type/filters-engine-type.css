@@ -1,0 +1,13 @@
+.engine-filter {
+  margin-bottom: 20px;
+}
+
+.engine-filter-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.engine-filter-input {
+  margin-right: 8px;
+}

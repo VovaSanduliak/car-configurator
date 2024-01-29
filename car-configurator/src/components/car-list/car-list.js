@@ -70,7 +70,13 @@ const CarList = () => {
         </div>
 
         {visibleCars < filteredCars.length && (
-          <div style={{ display: "flex", justifyContent: "center" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              textDecoration: "none",
+            }}
+          >
             <button className="show-more-btn" onClick={handleShowMoreClick}>
               show more
             </button>

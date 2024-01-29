@@ -6,9 +6,12 @@ const FilterSeries = ({ selectedSeries, setSelectedSeries }) => {
   };
 
   return (
-    <div>
-      <label htmlFor="seriesFilter">Filter by Series</label>
+    <div className="seiesFilter">
+      <label className="seriesFilterLabel" htmlFor="seriesFilter">
+        Filter by Series
+      </label>
       <select
+        className="seriesFilterSelect"
         id="seriesFilter"
         value={selectedSeries}
         onChange={handleSeriesChange}
