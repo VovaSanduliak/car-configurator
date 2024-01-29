@@ -55,7 +55,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section
+      {/* <section
         style={{
           display: "flex",
           width: "80%",
@@ -83,7 +83,7 @@ const Home = () => {
         <div style={{ display: "block", width: "50%" }}>
           <img src={photoIX2} alt="BMW iX2" style={{ width: "100%" }} />
         </div>
-      </section>
+      </section> */}
 
       {/*
       <section className="flex-container">
