@@ -5,11 +5,11 @@ const Loader = () => {
   return (
     <div className="loader-container">
       <div className="image-loader"></div>
-      <img
+      {/* <img
         src={loaderImage}
         alt="loader"
         style={{ width: "100%", height: "auto" }}
-      />
+      /> */}
     </div>
   );
 };

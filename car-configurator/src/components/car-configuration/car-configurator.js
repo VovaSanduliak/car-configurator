@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import ConfiguratorOptions from "../configurator-options/configurator-options";
 import ConfiguratorOptionValues from "../configurator-option-values/configurator-option-values";
 import ConfiguratorSummary from "../configurator-summary/configurator-summaty";
@@ -27,6 +27,12 @@ const CarConfigurator = () => {
         const response = await fetch(`${dbAddress}`);
         const data = await response.json();
         const selectedCar = data.cars.find((c) => c.id.toString() === id);
+
+        if (!selectedCar || !selectedCar.options.length) {
+          Navigate("*");
+          return;
+        }
+
         setCar(selectedCar);
 
         const defaultOptions = {};
