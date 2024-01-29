@@ -6,6 +6,7 @@ import ConfiguratorSummary from "../configurator-summary/configurator-summaty";
 import { catalogName } from "../../constants";
 import { dbAddress } from "../../constants";
 import "./car-configurator.css";
+import Loader from "../loader/loader";
 
 const CarConfigurator = () => {
   const { id } = useParams();
@@ -144,7 +145,7 @@ const CarConfigurator = () => {
               style={{ width: "100%" }}
             />
           ) : (
-            <div>Loading image...</div>
+            <Loader />
           )}
         </div>
       </div>
