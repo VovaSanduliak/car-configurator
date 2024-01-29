@@ -12,4 +12,6 @@ export const uk = {
     plug_in_hybrid: "гібрид",
     electric: "електрика",
   },
+
+  From: "Від",
 };

@@ -12,4 +12,6 @@ export const en = {
     plug_in_hybrid: "hybrid",
     electric: "electric",
   },
+
+  From: "From",
 };

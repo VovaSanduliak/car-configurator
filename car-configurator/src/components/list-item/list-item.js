@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import "../../i18n/";
 import "./list-item.css";
 
 const CarItem = ({ id, title, engine_type, price, photo }) => {
@@ -15,7 +16,10 @@ const CarItem = ({ id, title, engine_type, price, photo }) => {
 
         <h2 className="product-title">{title}</h2>
         <div className="product-details">
-          <p className="product-price">From {price}</p>
+          <p className="product-price">
+            {" "}
+            {t("From")} {price}
+          </p>
           <p>{engineTypes}</p>
         </div>
       </div>
