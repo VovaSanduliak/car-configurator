@@ -1,5 +1,5 @@
 export const uk = {
-  "Main title": "З задоволенням за кермом",
+  "Main title": "ІЗ задоволенням за кермом",
 
   Home: "Головна",
   Catalog: "Моделі",
