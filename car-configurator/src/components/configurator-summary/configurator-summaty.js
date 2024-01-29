@@ -22,7 +22,9 @@ const ConfiguratorSummary = ({ selectedOptions, totalSum }) => {
         })}
       </ul>
       {!isNaN(totalSum) && <h4>Total Price: {totalSum}</h4>}
-      {/* <button onClick={() => setShowModal(true)}>Order now</button> */}
+      <button className="order-btn" onClick={() => setShowModal(true)}>
+        Order now
+      </button>
       {showModal && <Modal onClose={() => setShowModal(false)} />}
     </div>
   );
