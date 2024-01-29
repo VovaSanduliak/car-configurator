@@ -40,7 +40,7 @@ const Sidebar = ({
 
       <div className={isActive ? "filter-button active" : "filter-button"}>
         <button className="openbtn" onClick={openNav}>
-          ☰ Open
+          ☰ Filters
         </button>
 
         {children}

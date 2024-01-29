@@ -7,6 +7,7 @@ const Search = ({ search, setSearch }) => {
   return (
     <form>
       <input
+        style={{ marginTop: "10px" }}
         className="input-search"
         id="search"
         type="text"
