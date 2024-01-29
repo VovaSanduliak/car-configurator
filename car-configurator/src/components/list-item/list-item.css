@@ -6,7 +6,7 @@
 
 .product-card {
   display: flex;
-  max-width: 250px;
+  max-width: 200px;
   height: 100%;
   
   flex-direction: column;

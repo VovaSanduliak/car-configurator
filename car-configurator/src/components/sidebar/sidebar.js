@@ -1,6 +1,6 @@
 import { useState } from "react";
-import "./sidebar.css";
 import Filters from "../filters/filters";
+import "./sidebar.css";
 
 const Sidebar = ({
   selectedSeries,
@@ -38,11 +38,10 @@ const Sidebar = ({
         />
       </div>
 
+      <button className="openbtn" onClick={openNav}>
+        ☰ Filters
+      </button>
       <div className={isActive ? "filter-button active" : "filter-button"}>
-        <button className="openbtn" onClick={openNav}>
-          ☰ Filters
-        </button>
-
         {children}
       </div>
     </>

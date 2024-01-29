@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import Search from "../Search/Search";
 import CarItem from "../list-item/list-item";
 import Sidebar from "../sidebar/sidebar";
-import "./car-list.css";
 import { paginationCount } from "../../constants";
+import "./car-list.css";
 
 const CarList = () => {
   const [cars, setCars] = useState([]);
