@@ -135,16 +135,18 @@ const CarConfigurator = () => {
         </div>
       </div>
       <div className="configurator-canvas">
-        {photoFilename ? (
-          <img
-            className="configuration-result"
-            src={photoFilename}
-            alt={car.title}
-            style={{ width: "100%" }}
-          />
-        ) : (
-          <div>Loading image...</div>
-        )}
+        <div className="configurator-canvas-container">
+          {photoFilename ? (
+            <img
+              className="configuration-result"
+              src={photoFilename}
+              alt={car.title}
+              style={{ width: "100%" }}
+            />
+          ) : (
+            <div>Loading image...</div>
+          )}
+        </div>
       </div>
     </div>
   );
